@@ -1,0 +1,83 @@
+version: '3.9'
+services:
+  chnode1:
+    build: .
+    ports:
+      - "8123:8123"
+      - "9000:9000"
+      - "9181:9181"
+      - "9234:9234"
+    volumes:
+      - ./configs-replicated/config1:/etc/clickhouse-server/config.d
+      - ./logs/logs_1:/var/log/clickhouse-server/
+      - ./data:/var/lib/clickhouse/user_files
+      - ch1_data:/var/lib/clickhouse
+
+    networks:
+      - clickhouse_network
+    mem_limit: 2G
+    cpus: 1
+    command: ["clickhouse-server", "--config-file=/etc/clickhouse-server/config.xml", "start"]
+
+  chnode2:
+    build: .
+    ports:
+      - "8124:8123"
+      - "9001:9000"
+      - "9182:9181"
+      - "9235:9234"
+    volumes:
+      - ./configs-replicated/config2:/etc/clickhouse-server/config.d/
+      - ./logs/logs_2:/var/log/clickhouse-server/
+      - ./data:/var/lib/clickhouse/user_files
+      - ch2_data:/var/lib/clickhouse
+    networks:
+      - clickhouse_network
+    mem_limit: 2G
+    cpus: 1
+    command: ["clickhouse-server", "--config-file=/etc/clickhouse-server/config.xml", "start"]
+
+  chnode3:
+    build: .
+    ports:
+      - "8125:8123"
+      - "9002:9000"
+      - "9183:9181"
+      - "9236:9234"
+    volumes:
+      - ./configs-replicated/config3:/etc/clickhouse-server/config.d/
+      - ./logs/logs_3:/var/log/clickhouse-server/
+      - ./data:/var/lib/clickhouse/user_files
+      - ch3_data:/var/lib/clickhouse
+    networks:
+      - clickhouse_network
+    mem_limit: 2G
+    cpus: 1
+    command: ["clickhouse-server", "--config-file=/etc/clickhouse-server/config.xml", "start"]
+  
+  chnode4:
+    build: .
+    ports:
+      - "8126:8123"
+      - "9003:9000"
+      - "9184:9181"
+      - "9237:9234"
+    volumes:
+      - ./configs-replicated/config4:/etc/clickhouse-server/config.d/
+      - ./logs/logs_4:/var/log/clickhouse-server/
+      - ./data:/var/lib/clickhouse/user_files
+      - ch4_data:/var/lib/clickhouse
+    networks:
+      - clickhouse_network
+    mem_limit: 2G
+    cpus: 1
+    command: ["clickhouse-server", "--config-file=/etc/clickhouse-server/config.xml", "start"]
+
+networks:
+  clickhouse_network:
+    driver: bridge
+volumes:
+  ch1_data:
+  ch2_data:
+  ch3_data:
+  ch4_data:

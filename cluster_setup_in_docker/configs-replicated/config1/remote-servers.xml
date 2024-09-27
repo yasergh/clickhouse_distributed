@@ -1,0 +1,31 @@
+<clickhouse>
+  <remote_servers replace="true">
+    <cluster_2S_2R> <!-- Cluster Name -->
+      <!-- Shard 1 -->
+      <shard>
+        <internal_replication>true</internal_replication>
+        <replica>
+          <host>chnode1</host>
+          <port>9000</port>
+        </replica>
+        <replica>
+          <host>chnode3</host>
+          <port>9000</port>
+        </replica>
+      </shard>
+      
+      <!-- Shard 2 -->
+      <shard>
+        <internal_replication>true</internal_replication>
+        <replica>
+          <host>chnode2</host>
+          <port>9000</port>
+        </replica>
+        <replica>
+          <host>chnode4</host>
+          <port>9000</port>
+        </replica>
+      </shard>
+    </cluster_2S_2R>
+  </remote_servers>
+</clickhouse>
