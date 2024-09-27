@@ -4,7 +4,7 @@
 
 This repository contains tutorials on setting up **ClickHouse clusters** to handle **NYC Taxi data** stored in **Parquet files**. We cover two key configurations for distributed and replicated setups.
 
-- download some sample parquet files here : [TLC Trip Record Data]([TLC Trip Record Data - TLC](https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page))
+- download some sample parquet files here : [TLC Trip Record Data](https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
 
 ## Topics Covered:
 
