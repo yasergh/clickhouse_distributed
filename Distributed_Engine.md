@@ -291,7 +291,7 @@ Execution time of the query filtering data on passenger_count column
 
 Next, lets look at materialized views, and the SummingMergeTree engine.
 
-## ## Materialized Views
+## Materialized Views
 
 Materialized views in ClickHouse are pre-populated views that make faster query execution possible by shifting complex operations to `insert` process instead of the queries to retrieve data. Materialized views are refreshed in real time when new data is inserted in source table(s). ClickHouse documentation describes Materialized Views as:
 
